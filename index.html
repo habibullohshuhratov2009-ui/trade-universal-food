@@ -12,9 +12,10 @@
 
 <header class="top">
   <div class="wrap top-in">
-    <a href="#home" class="brand" aria-label="TRADE UNIVERSAL FOOD"><img src="assets/mark.jpg" alt=""><span>TRADE UNIVERSAL FOOD</span></a>
+    <a href="#home" class="brand" aria-label="TRADE UNIVERSAL FOOD"><img src="assets/mark.png" alt=""><span>TRADE UNIVERSAL FOOD</span></a>
     <nav class="menu" aria-label="Menu">
       <a href="#home" data-t="nav_home"></a>
+      <a href="#services" data-t="nav_services"></a>
       <a href="#team" data-t="nav_team"></a>
       <a href="#work" data-t="nav_work"></a>
       <a href="#cars" data-t="nav_cars"></a>
@@ -38,7 +39,7 @@
         <p class="lead" data-t="hero_p1"></p>
         <a href="#contact" class="btn" data-t="cta"></a>
       </div>
-      <div class="hero-logo"><img src="assets/logo.jpg" alt="TRADE UNIVERSAL FOOD logo" width="860" height="785"></div>
+      <div class="hero-logo"><img src="assets/logo.png" alt="TRADE UNIVERSAL FOOD logo" width="900" height="820"></div>
     </div>
     <div class="wrap segs reveal">
       <p class="segs-p" data-t="hero_p2"></p>
@@ -51,14 +52,27 @@
     </div>
   </section>
 
-  <section id="team" class="sec" data-bg="soft">
+  <section id="services" class="sec" data-bg="soft">
+    <div class="wrap">
+      <h2 class="reveal" data-t="serv_h"></h2>
+      <div class="services reveal">
+        <article class="svc svc-big"><img src="assets/work/74815.jpg" alt="" loading="lazy"><div><i class="ph ph-bowl-food"></i><h3 data-t="s1_t"></h3><p data-t="s1_d"></p></div></article>
+        <article class="svc"><img src="assets/work/74763.jpg" alt="" loading="lazy"><div><i class="ph ph-champagne"></i><h3 data-t="s2_t"></h3><p data-t="s2_d"></p></div></article>
+        <article class="svc"><img src="assets/work/74778.jpg" alt="" loading="lazy"><div><i class="ph ph-campfire"></i><h3 data-t="s3_t"></h3><p data-t="s3_d"></p></div></article>
+        <article class="svc svc-big"><img src="assets/work/74855.jpg" alt="" loading="lazy"><div><i class="ph ph-truck"></i><h3 data-t="s4_t"></h3><p data-t="s4_d"></p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="sec" data-bg="base">
     <div class="wrap">
       <h2 class="reveal" data-t="team_h"></h2>
+      <p class="sub reveal" data-t="team_p"></p>
       <div class="team reveal" id="teamGrid"></div>
     </div>
   </section>
 
-  <section id="work" class="sec" data-bg="base">
+  <section id="work" class="sec" data-bg="soft">
     <div class="wrap">
       <h2 class="reveal" data-t="work_h"></h2>
       <p class="hint reveal" data-t="work_hint"></p>
@@ -74,10 +88,14 @@
   <section id="cars" class="sec" data-bg="accent">
     <div class="wrap">
       <h2 class="reveal" data-t="cars_h"></h2>
+      <p class="sub reveal" data-t="cars_p"></p>
       <div class="cars reveal">
-        <article class="car car-big"><div class="ph-img"><i class="ph ph-truck"></i><span data-t="ph_photo"></span></div><div class="car-info"><b class="num">2</b><span data-t="car1"></span></div></article>
-        <article class="car"><div class="ph-img"><i class="ph ph-truck-trailer"></i><span data-t="ph_photo"></span></div><div class="car-info"><b class="num">1</b><span data-t="car2"></span></div></article>
-        <article class="car"><div class="ph-img"><i class="ph ph-car-profile"></i><span data-t="ph_photo"></span></div><div class="car-info"><b class="num">5</b><span><span data-t="car3"></span><small data-t="car3_note"></small></span></div></article>
+        <img class="cars-photo" src="assets/work/74864.jpg" alt="" loading="lazy">
+        <div class="car-tiles">
+          <div class="car-tile"><i class="ph ph-truck"></i><b class="num">2</b><span data-t="car1"></span></div>
+          <div class="car-tile"><i class="ph ph-truck-trailer"></i><b class="num">1</b><span data-t="car2"></span></div>
+          <div class="car-tile"><i class="ph ph-car-profile"></i><b class="num">5</b><span><span data-t="car3"></span><small data-t="car3_note"></small></span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -122,19 +140,16 @@
       <div class="reveal">
         <h2 data-t="contact_h"></h2>
         <ul class="c-list">
-          <li><i class="ph ph-phone"></i><span><small data-t="c_phone"></small><b class="todo" data-t="ph_contact"></b></span></li>
-          <li><i class="ph ph-telegram-logo"></i><span><small data-t="c_tg"></small><b class="todo" data-t="ph_contact"></b></span></li>
+          <li><i class="ph ph-phone"></i><span><small data-t="c_phone"></small><a class="tel" href="tel:+998979820000">+998 97 982-00-00</a></span></li>
+          <li><i class="ph ph-globe-hemisphere-west"></i><span><small data-t="c_phone2"></small><a class="tel" href="tel:+998974280700">+998 97 428-07-00</a></span></li>
           <li><i class="ph ph-map-pin"></i><span><small data-t="c_addr"></small><b data-t="r_addr_v"></b></span></li>
         </ul>
       </div>
-      <form class="form reveal" onsubmit="return false">
-        <label><span data-t="f_name"></span><input name="name" autocomplete="name" required></label>
-        <label><span data-t="f_org"></span><input name="org" autocomplete="organization"></label>
-        <label><span data-t="f_phone"></span><input name="phone" type="tel" autocomplete="tel" required></label>
-        <label><span data-t="f_msg"></span><textarea name="msg" rows="3"></textarea></label>
-        <button class="btn" type="submit" disabled data-t="f_send"></button>
-        <p class="f-note" data-t="f_note"></p>
-      </form>
+      <div class="call-card reveal">
+        <img src="assets/logo.png" alt="" loading="lazy">
+        <a class="btn btn-wide" href="tel:+998979820000"><i class="ph ph-phone-call"></i><span data-t="call"></span> +998 97 982-00-00</a>
+        <a class="btn btn-wide btn-ghost" href="tel:+998974280700"><i class="ph ph-globe-hemisphere-west"></i><span data-t="c_phone2"></span></a>
+      </div>
     </div>
   </section>
 </main>
@@ -149,6 +164,7 @@
 
 
 <script src="i18n.js"></script>
+<script src="works.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

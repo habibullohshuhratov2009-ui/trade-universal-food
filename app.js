@@ -6,49 +6,57 @@
     set(k, v) { try { localStorage.setItem(k, v); } catch {} }
   };
 
-  // Placeholder data until Doston sends real photos and captions.
-  // Years are approximate, after the registration date 29.10.2018 (owner's instruction 24.09.2026).
-  const WORKS = [2019, 2020, 2021, 2021, 2022, 2023, 2024, 2025].map((year, i) => ({ id: i + 1, year }));
-  const TEAM = 4;
+  const WORKS = window.WORKS || [];
+  const TEAM_PHOTOS = window.TEAM_PHOTOS || [];
+  const src = id => `assets/work/${id}.jpg`;
 
   let lang = store.get("tuf-lang") || "uz";
 
   function t(key) { return (I18N[lang] && I18N[lang][key]) || ""; }
+  const L = obj => (obj && (obj[lang] || obj.ru)) || "";
 
   function renderTeam() {
-    $("#teamGrid").innerHTML = Array.from({ length: TEAM }, () => `
-      <article class="person">
-        <div class="ph-img"><i class="ph ph-user"></i><span>${t("ph_photo")}</span></div>
-        <b>${t("ph_name")}</b><small>${t("ph_role")}</small>
-      </article>`).join("");
+    $("#teamGrid").innerHTML = TEAM_PHOTOS.map((id, i) => `
+      <figure class="team-ph${i === 0 ? " wide" : ""}"><img src="${src(id)}" alt="${t("team_h")}" loading="lazy"></figure>`).join("");
   }
 
   function renderStrip() {
-    $("#strip").innerHTML = WORKS.map(w => `
-      <button class="work" data-id="${w.id}" aria-expanded="false">
-        <div class="ph-img"><i class="ph ph-image"></i><span>${t("ph_photo")}</span></div>
-        <div class="work-cap"><b>${t("ph_object")}</b><small>${t("ph_place")} · ${w.year}</small></div>
+    $("#strip").innerHTML = WORKS.map((w, i) => `
+      <button class="work" data-i="${i}" aria-expanded="false">
+        <div class="work-img"><img src="${src(w.img)}" alt="${L(w.t)}" loading="lazy"></div>
+        <div class="work-cap"><b>${L(w.t)}</b><small>${L(w.o)} · ${w.year}</small></div>
       </button>`).join("");
-    $$("#strip .work").forEach(b => b.addEventListener("click", () => openDetail(+b.dataset.id)));
+    $$("#strip .work").forEach(b => b.addEventListener("click", () => openDetail(+b.dataset.i)));
   }
 
   let openId = null;
-  function openDetail(id) {
+  function openDetail(i) {
     const d = $("#detail");
-    $$("#strip .work").forEach(b => b.setAttribute("aria-expanded", String(+b.dataset.id === id && openId !== id)));
-    if (openId === id) { d.hidden = true; openId = null; return; }
-    const w = WORKS.find(x => x.id === id);
-    openId = id;
+    $$("#strip .work").forEach(b => b.setAttribute("aria-expanded", String(+b.dataset.i === i && openId !== i)));
+    if (openId === i) { d.hidden = true; openId = null; return; }
+    const w = WORKS[i];
+    openId = i;
+    const pics = [w.img, ...w.more];
     d.innerHTML = `
-      <div class="detail-img ph-img"><i class="ph ph-image"></i><span>${t("ph_photo")}</span></div>
-      <dl class="detail-dl">
-        <div><dt>${t("w_object")}</dt><dd>${t("ph_object")}</dd></div>
-        <div><dt>${t("w_place")}</dt><dd>${t("ph_place")}</dd></div>
-        <div><dt>${t("w_year")}</dt><dd class="mono">${w.year}</dd></div>
-        <div class="wide"><dt>${t("w_desc")}</dt><dd>${t("ph_desc")}</dd></div>
-      </dl>`;
+      <div class="detail-media">
+        <img class="detail-main" src="${src(pics[0])}" alt="${L(w.t)}">
+        ${pics.length > 1 ? `<div class="detail-thumbs">${pics.map((p, k) => `<button class="${k ? "" : "on"}" data-src="${src(p)}"><img src="${src(p)}" alt=""></button>`).join("")}</div>` : ""}
+      </div>
+      <div>
+        <h3 class="detail-title">${L(w.t)}</h3>
+        <dl class="detail-dl">
+          <div><dt>${t("w_object")}</dt><dd>${L(w.o)}</dd></div>
+          <div><dt>${t("w_year")}</dt><dd class="mono">${w.year}</dd></div>
+          <div class="wide"><dt>${t("w_desc")}</dt><dd>${L(w.d)}</dd></div>
+        </dl>
+      </div>`;
+    $$(".detail-thumbs button", d).forEach(b => b.addEventListener("click", () => {
+      $(".detail-main", d).src = b.dataset.src;
+      $$(".detail-thumbs button", d).forEach(x => x.classList.toggle("on", x === b));
+    }));
     d.hidden = false;
     d.classList.remove("show"); void d.offsetWidth; d.classList.add("show");
+    if (window.innerWidth < 768) d.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
   function applyLang(l) {

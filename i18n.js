@@ -2,6 +2,16 @@
 // Short UI labels (nav, headings, buttons) are ours.
 window.I18N = {
   uz: {
+    nav_services: "Хизматлар",
+    serv_h: "Бизнинг хизматлар",
+    s1_t: "Ташкилотлар учун овқатланиш", s1_d: "Ошхоналарда кунлик комплекс ва порцияли тушликлар: биринчи, иккинчи таом, салат ва нон.",
+    s2_t: "Банкет ва фуршетлар", s2_d: "Тадбирлар учун фуршет, байрам столи ва расмий қабулларни тўлиқ ташкил этиш.",
+    s3_t: "Кўчма ва дала ошхонаси", s3_d: "Очиқ ҳаводаги тадбирларда таом тайёрлаш ва тарқатиш, ўз транспортимиз билан.",
+    s4_t: "Маҳсулот етказиб бериш", s4_d: "Ошхоналарга сабзавот, мева ва гўштни ўз транспортимизда мунтазам етказиб берамиз.",
+    team_p: "Ошпазлар, ошхона ходимлари ва тарқатувчилар: ҳар бир тадбир ва ҳар кунги тушлик ортида турган жамоа.",
+    cars_p: "Маҳсулотлар ва таомларни ўз транспортимизда ташиймиз, шу сабабли муддатларни ўзимиз назорат қиламиз.",
+    c_phone2: "Чет элликлар учун", call: "Қўнғироқ қилиш",
+    more_photos: "Бошқа суратлар",
     nav_home: "Асосий", nav_team: "Ходимлар", nav_work: "Бажарилган ишлар",
     nav_cars: "Автомобиллар", nav_cert: "Гувоҳнома", nav_about: "Биз ҳақимизда",
     cta: "Боғланиш",
@@ -35,6 +45,16 @@ window.I18N = {
     foot: "Барча ҳуқуқлар ҳимояланган."
   },
   ru: {
+    nav_services: "Услуги",
+    serv_h: "Наши услуги",
+    s1_t: "Питание для организаций", s1_d: "Ежедневные комплексные и порционные обеды в столовых: первое, второе, салат и хлеб.",
+    s2_t: "Банкеты и фуршеты", s2_d: "Фуршеты, праздничные столы и официальные приёмы под ключ.",
+    s3_t: "Выездная и полевая кухня", s3_d: "Приготовление и раздача еды на мероприятиях под открытым небом, на собственном транспорте.",
+    s4_t: "Поставка продуктов", s4_d: "Регулярно доставляем в столовые овощи, фрукты и мясо на собственном транспорте.",
+    team_p: "Повара, работники кухни и раздачи: команда, которая стоит за каждым мероприятием и каждым обедом.",
+    cars_p: "Продукты и готовую еду возим на собственном транспорте, поэтому сроки контролируем сами.",
+    c_phone2: "Для иностранцев", call: "Позвонить",
+    more_photos: "Ещё фото",
     nav_home: "Главная", nav_team: "Сотрудники", nav_work: "Выполненные работы",
     nav_cars: "Автомобили", nav_cert: "Свидетельство", nav_about: "О нас",
     cta: "Связаться",
@@ -68,6 +88,16 @@ window.I18N = {
     foot: "Все права защищены."
   },
   en: {
+    nav_services: "Services",
+    serv_h: "Our services",
+    s1_t: "Catering for organizations", s1_d: "Daily set and portioned lunches in canteens: soup, a main course, salad and bread.",
+    s2_t: "Banquets and buffets", s2_d: "Buffets, festive tables and official receptions, fully organized.",
+    s3_t: "Mobile and field kitchen", s3_d: "Cooking and serving food at outdoor events, with our own transport.",
+    s4_t: "Food product supply", s4_d: "Regular deliveries of vegetables, fruit and meat to canteens with our own vehicles.",
+    team_p: "Cooks, kitchen staff and servers: the team behind every event and every lunch.",
+    cars_p: "We carry products and ready meals in our own vehicles, so we control the timing ourselves.",
+    c_phone2: "For foreign clients", call: "Call",
+    more_photos: "More photos",
     nav_home: "Home", nav_team: "Team", nav_work: "Our work",
     nav_cars: "Vehicles", nav_cert: "Certificate", nav_about: "About us",
     cta: "Contact us",
