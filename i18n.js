@@ -2,6 +2,7 @@
 // Short UI labels (nav, headings, buttons) are ours.
 window.I18N = {
   uz: {
+    st1: "ташкил топган йил", st2: "хизмат йўналиши", st3: "ўз автомобилимиз",
     nav_services: "Хизматлар",
     serv_h: "Бизнинг хизматлар",
     s1_t: "Ташкилотлар учун овқатланиш", s1_d: "Ошхоналарда кунлик комплекс ва порцияли тушликлар: биринчи, иккинчи таом, салат ва нон.",
@@ -45,6 +46,7 @@ window.I18N = {
     foot: "Барча ҳуқуқлар ҳимояланган."
   },
   ru: {
+    st1: "год основания", st2: "направления услуг", st3: "собственных машин",
     nav_services: "Услуги",
     serv_h: "Наши услуги",
     s1_t: "Питание для организаций", s1_d: "Ежедневные комплексные и порционные обеды в столовых: первое, второе, салат и хлеб.",
@@ -88,6 +90,7 @@ window.I18N = {
     foot: "Все права защищены."
   },
   en: {
+    st1: "founded", st2: "service lines", st3: "own vehicles",
     nav_services: "Services",
     serv_h: "Our services",
     s1_t: "Catering for organizations", s1_d: "Daily set and portioned lunches in canteens: soup, a main course, salad and bread.",

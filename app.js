@@ -105,6 +105,23 @@
   // Safety net: never leave content invisible if the observer does not fire (in-app browsers, background tabs)
   setTimeout(() => $$(".reveal").forEach(el => el.classList.add("in")), 2500);
 
+  // Count-up numbers: the final value is in the HTML, so nothing is lost if this never runs
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce && "IntersectionObserver" in window && !new URLSearchParams(location.search).get("shot")) {
+    const cio = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      cio.unobserve(e.target);
+      const el = e.target, end = +el.dataset.count, start = end > 1000 ? end - 40 : 0, t0 = performance.now(), dur = 1400;
+      const tick = now => {
+        const p = Math.min(1, (now - t0) / dur), k = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(start + (end - start) * k);
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = end;
+      };
+      requestAnimationFrame(tick);
+    }), { threshold: 0.6 });
+    $$(".num-count").forEach(el => cio.observe(el));
+  }
+
   const q = new URLSearchParams(location.search);
   if (q.get("lang")) lang = q.get("lang");
   applyLang(lang);
