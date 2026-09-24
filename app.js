@@ -101,6 +101,8 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
   }, { threshold: 0.12 });
   $$(".reveal").forEach(el => rio.observe(el));
+  // Safety net: never leave content invisible if the observer does not fire (in-app browsers, background tabs)
+  setTimeout(() => $$(".reveal").forEach(el => el.classList.add("in")), 2500);
 
   const q = new URLSearchParams(location.search);
   applyVariant(["a", "b", "c", "d"].includes(q.get("v")) ? q.get("v") : "a");
