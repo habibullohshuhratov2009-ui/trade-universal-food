@@ -8,7 +8,8 @@
 
   const WORKS = window.WORKS || [];
   const TEAM_PHOTOS = window.TEAM_PHOTOS || [];
-  const src = id => `assets/work/${id}.jpg`;
+  const src = id => `assets/work/${id}.webp`;
+  const small = id => `assets/work/${id}-s.webp`;
 
   let lang = store.get("tuf-lang") || "uz";
 
@@ -17,13 +18,13 @@
 
   function renderTeam() {
     $("#teamGrid").innerHTML = TEAM_PHOTOS.map((id, i) => `
-      <figure class="team-ph${i === 0 ? " wide" : ""}"><img src="${src(id)}" alt="${t("team_h")}" loading="lazy"></figure>`).join("");
+      <figure class="team-ph${i === 0 ? " wide" : ""}"><img src="${i === 0 ? src(id) : small(id)}" alt="${t("team_h")}" loading="lazy"></figure>`).join("");
   }
 
   function renderStrip() {
     $("#strip").innerHTML = WORKS.map((w, i) => `
       <button class="work" data-i="${i}" aria-expanded="false">
-        <div class="work-img"><img src="${src(w.img)}" alt="${L(w.t)}" loading="lazy"></div>
+        <div class="work-img"><img src="${small(w.img)}" width="480" height="360" alt="${L(w.t)}" loading="lazy"></div>
         <div class="work-cap"><b>${L(w.t)}</b><small>${L(w.o)} · ${w.year}</small></div>
       </button>`).join("");
     $$("#strip .work").forEach(b => b.addEventListener("click", () => openDetail(+b.dataset.i)));
@@ -40,7 +41,7 @@
     d.innerHTML = `
       <div class="detail-media">
         <img class="detail-main" src="${src(pics[0])}" alt="${L(w.t)}">
-        ${pics.length > 1 ? `<div class="detail-thumbs">${pics.map((p, k) => `<button class="${k ? "" : "on"}" data-src="${src(p)}"><img src="${src(p)}" alt=""></button>`).join("")}</div>` : ""}
+        ${pics.length > 1 ? `<div class="detail-thumbs">${pics.map((p, k) => `<button class="${k ? "" : "on"}" data-src="${src(p)}"><img src="${small(p)}" alt=""></button>`).join("")}</div>` : ""}
       </div>
       <div>
         <h3 class="detail-title">${L(w.t)}</h3>

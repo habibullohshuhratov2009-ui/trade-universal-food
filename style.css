@@ -2,7 +2,7 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  --gold: #F0B020; --gold-hi: #F0C030; --gold-deep: #9A6A08; --on-gold: #16181B;
+  --gold: #F0B020; --gold-hi: #F0C030; --gold-deep: #805800; --on-gold: #16181B;
   --radius: 14px; --ease: cubic-bezier(.16, 1, .3, 1);
 }
 /* Variant A: modest. Light neutral page, near-black text, gold only on buttons and lines */
