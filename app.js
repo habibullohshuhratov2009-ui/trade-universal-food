@@ -115,6 +115,7 @@
     document.documentElement.classList.add("no-anim");
     $$(".reveal").forEach(el => el.classList.add("in"));
     if (q.get("open")) openDetail(+q.get("open"));
+    if (q.get("menu")) { $(".menu").classList.add("open"); }
     if (q.get("hover")) $$("#strip .work")[+q.get("hover") - 1]?.classList.add("is-hover");
     const to = q.get("to") && document.getElementById(q.get("to"));
     if (to) { to.scrollIntoView(); document.body.dataset.bg = to.dataset.bg; }
