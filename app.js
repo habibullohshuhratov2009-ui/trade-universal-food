@@ -61,15 +61,8 @@
     if (openId) { const id = openId; openId = null; openDetail(id); }
   }
 
-  // Preview-only A/B switch (removed before release)
-  function applyVariant(v) {
-    document.documentElement.dataset.variant = v;
-    $$("[data-v]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === v)));
-    const u = new URL(location.href); u.searchParams.set("v", v); history.replaceState(null, "", u);
-  }
 
   $$("[data-lang]").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
-  $$("[data-v]").forEach(b => b.addEventListener("click", () => applyVariant(b.dataset.v)));
 
   // Strip arrows
   const strip = $("#strip");
@@ -105,7 +98,6 @@
   setTimeout(() => $$(".reveal").forEach(el => el.classList.add("in")), 2500);
 
   const q = new URLSearchParams(location.search);
-  applyVariant(["a", "b", "c", "d"].includes(q.get("v")) ? q.get("v") : "a");
   if (q.get("lang")) lang = q.get("lang");
   applyLang(lang);
 

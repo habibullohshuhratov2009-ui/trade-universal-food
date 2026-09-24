@@ -10,26 +10,11 @@
 [data-variant="a"] body[data-bg="soft"] { --bg: #ECEEEA; --card: #FAFAF8; }
 /* Doston 24.09: in the modest variant the certificate section stays white like the rest */
 [data-variant="a"] body[data-bg="dark"] { --bg: #FFFFFF; --card: #FAFAF8; }
-/* Variant B: bright. Globe blue from the logo + gold, colour blocks alternate section by section */
-[data-variant="b"] body { --bg: #F4F6FA; --fg: #0B1F3A; --muted: #4A5A70; --card: #FFFFFF; --line: #D5DDEA; --ph: #E3E9F2; --accent-text: #00306C; }
-[data-variant="b"] body[data-bg="hero"], [data-variant="b"] body[data-bg="base"] { --bg: #00306C; --fg: #FFFFFF; --muted: #C9D6E8; --card: #0A3E80; --line: #1D4F8F; --ph: #0A3E80; --accent-text: var(--gold-hi); }
-[data-variant="b"] body[data-bg="soft"] { --bg: #E6EDF7; --card: #FFFFFF; }
-[data-variant="b"] body[data-bg="accent"] { --bg: #F0B020; --fg: #16181B; --muted: #3B3320; --card: #F5C542; --line: #D39A12; --ph: #F5C542; --accent-text: #00306C; }
-[data-variant="b"] body[data-bg="dark"] { --bg: #0A2A55; --fg: #FFFFFF; --muted: #C9D6E8; --card: #123A6E; --line: #214A80; --ph: #123A6E; --accent-text: var(--gold-hi); }
-/* Variant C: dark premium. Black and gold, like the letters of the logo */
-[data-variant="c"] body { --bg: #111315; --fg: #F2F2EF; --muted: #A9ADB3; --card: #1B1E22; --line: #2C3036; --ph: #22262B; --accent-text: var(--gold-hi); }
-[data-variant="c"] body[data-bg="soft"], [data-variant="c"] body[data-bg="accent"] { --bg: #181B1E; --card: #22262B; }
-[data-variant="c"] body[data-bg="dark"] { --bg: #0B0C0E; }
-/* Variant D: warm bright. Gold dominant with black and white */
-[data-variant="d"] body { --bg: #FFFFFF; --fg: #16181B; --muted: #4E535A; --card: #FAFAF7; --line: #E3E1D8; --ph: #F1F0EA; --accent-text: #8A5C06; }
-[data-variant="d"] body[data-bg="hero"], [data-variant="d"] body[data-bg="accent"] { --bg: #F5C542; --fg: #16181B; --muted: #4A3B12; --card: #F8D46A; --line: #DDAA2A; --ph: #F8D46A; --accent-text: #16181B; }
-[data-variant="d"] body[data-bg="soft"] { --bg: #FFF8E4; }
-[data-variant="d"] body[data-bg="dark"] { --bg: #16181B; --fg: #FFFFFF; --muted: #B4B8BE; --card: #22252A; --line: #33373D; --ph: #2B2F35; --accent-text: var(--gold-hi); }
 [data-variant="a"] body[data-bg="accent"] { --bg: #ECEEEA; --card: #FAFAF8; }
 /* On gold backgrounds a gold button disappears: switch it to black */
-[data-bg="accent"] .btn, [data-variant="d"] [data-bg="hero"] .btn, [data-variant="d"] body[data-bg="hero"] .btn { background: #16181B; color: var(--gold-hi); }
-body[data-bg="accent"] .langs button[aria-pressed="true"], [data-variant="d"] body[data-bg="hero"] .langs button[aria-pressed="true"] { background: #16181B; color: var(--gold-hi); }
-body[data-bg="accent"] .menu a.active, [data-variant="d"] body[data-bg="hero"] .menu a.active { box-shadow: inset 0 -2px 0 #16181B; }
+[data-bg="accent"] .btn { background: #16181B; color: var(--gold-hi); }
+body[data-bg="accent"] .langs button[aria-pressed="true"] { background: #16181B; color: var(--gold-hi); }
+body[data-bg="accent"] .menu a.active { box-shadow: inset 0 -2px 0 #16181B; }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -100,7 +85,6 @@ h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 750; }
 .tag { font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; color: var(--accent-text); }
 .lead { color: var(--muted); max-width: 58ch; margin: 0 0 28px; }
 .hero-logo img { width: 100%; height: auto; max-width: 440px; margin-left: auto; mix-blend-mode: multiply; }
-[data-variant]:not([data-variant="a"]) .hero-logo img { mix-blend-mode: normal; background: #fff; border-radius: 24px; padding: 18px; }
 [data-bg="dark"] .hero-logo img { mix-blend-mode: normal; background: #fff; border-radius: 24px; padding: 18px; }
 .segs { margin-top: 56px; }
 .segs-p { color: var(--muted); max-width: 70ch; }
@@ -194,11 +178,6 @@ h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 750; }
 /* ---------- Footer ---------- */
 .foot { border-top: 1px solid var(--line); padding: 28px 0; font-size: 14px; color: var(--muted); }
 .foot-in { display: flex; flex-wrap: wrap; gap: 8px 28px; }
-
-/* ---------- Preview variant switch (remove before release) ---------- */
-.variant-switch { position: fixed; right: 16px; bottom: 16px; z-index: 30; display: flex; background: #16181B; border-radius: 999px; padding: 4px; box-shadow: 0 8px 24px rgb(0 0 0 / .25); }
-.variant-switch button { border: 0; background: transparent; color: #F2F2EF; font: 700 14px/1 "Onest"; width: 40px; height: 36px; border-radius: 999px; cursor: pointer; }
-.variant-switch button[aria-pressed="true"] { background: var(--gold); color: #16181B; }
 
 /* ---------- Reveal ---------- */
 @media (prefers-reduced-motion: no-preference) {
